@@ -1,0 +1,7 @@
+  
+- name: Elastic search server status
+  command: "systemctl status elasticsearch" 
+  
+- name: Check new nodes in autoscaling group
+  command: 'aws ec2 describe-instances --region us-west-1 --filters "Name=tag:Name,Values=elastic-search-searvice" "Name=tag:Environment,Values=Phoneix" "Name=tag:Role,Values=elastic-search-data" --output text --query "Reservations[*].Instances[*].PrivateIpAddress"'
+  run_once: true

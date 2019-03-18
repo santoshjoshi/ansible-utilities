@@ -1,0 +1,18 @@
+
+- name: Create backup folder
+  command: "mkdir -p /home/ubuntu/backup/"  
+
+- name: Check log4j2.properties exists
+  stat: 
+    path: /srv/elasticsearch/log4j2.properties
+  register: stat_result
+
+- name: Take back up of existing log4j.properties if it exists
+  command: "cp /srv/elasticsearch/log4j2.properties /home/ubuntu/backup/log4j2.properties"
+  when: stat_result.stat.exists 
+      
+- name: Copy log4j File
+  template: src=log4j2.properties dest=/srv/elasticsearch/log4j2.properties mode=0755
+  
+- name: Restart elastic search server
+  command: "systemctl restart elasticsearch.service"  

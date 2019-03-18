@@ -1,0 +1,5 @@
+
+- name: check log files
+  command: ls -ltrsh /data1/elasticsearch/log
+  register: out
+- debug: var=out.stdout_lines
