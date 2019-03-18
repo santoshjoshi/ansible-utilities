@@ -1,12 +1,7 @@
 # Some simple ansible task for automating some of the tasks related to elastic search 
 
-Requirement: 
-    Update log4j2.properties on all elastic search servers, restart them and check if logs are being rolledand purged over or not
-	
-	
 ### Requirement: 
-    Update log4j2.properties on all elastic search servers, restart them and check if logs are being rolledand purged over or not
-	
+    Update log4j2.properties on all elastic search servers, restart them and check if logs are being rolled and purged over or not.
 	
 #### Use Case 1: 
 1. Take backup of existing log4j2.properties  if exists
